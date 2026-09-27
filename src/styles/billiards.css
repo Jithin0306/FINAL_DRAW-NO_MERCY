@@ -1071,7 +1071,7 @@ body,
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  z-index: 62;
+  z-index: 90;
   overflow: visible;
   pointer-events: none;
 }
@@ -1115,7 +1115,7 @@ body,
   margin: 0 auto;
   gap: 26px;
   overflow: visible;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .hand-color-cluster {
@@ -1123,6 +1123,7 @@ body,
   display: flex;
   flex-direction: column;
   align-items: center;
+  pointer-events: none;
 }
 
 /* Subtle colored light reflection on the felt beneath each color group (no text labels) */
@@ -1150,6 +1151,7 @@ body,
 .cluster-cards-fan {
   display: flex;
   align-items: flex-end;
+  pointer-events: none;
 }
 
 /* Cards within the same color group overlap tightly */
@@ -1160,6 +1162,20 @@ body,
 .hand-card-slot {
   position: relative;
   transform-origin: bottom center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Expanded invisible hover anchor while hovered so elevating/un-rotating cards don't jitter-cancel mouseenter */
+.hand-card-slot.is-hovered::before {
+  content: '';
+  position: absolute;
+  top: -44px;
+  bottom: 0;
+  left: -12px;
+  right: -18px;
+  pointer-events: auto;
+  z-index: -1;
 }
 
 .hand-card-slot.is-hovered .uno-physical-card {
@@ -3569,7 +3585,8 @@ body,
 
   .player-foreground-hand-stage {
     bottom: 2px;
-    height: 118px;
+    height: 140px;
+    z-index: 90;
   }
 
   .player-hand-scroll-viewport {

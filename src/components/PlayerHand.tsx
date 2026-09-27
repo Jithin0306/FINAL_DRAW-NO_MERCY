@@ -55,10 +55,13 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
   const cardWidthPx =
     cardRenderSize === 'sm' ? 68 : cardRenderSize === 'md' ? 102 : 116;
 
-  // Leave horizontal safety margin so rotated edge cards stay 100% inside the viewport
-  const availableW = isMobileViewport
-    ? Math.max(280, winWidth - 18)
-    : Math.max(340, winWidth - 84);
+  // Leave horizontal safety margin so cards stay comfortably inside the playable table zone
+  // and clear the bottom-left player avatar pill and bottom-right UNO/DRAW action controls
+  const sideHudMargin = isMobileViewport ? 18 : winWidth <= 1180 ? 210 : 250;
+  const availableW = Math.max(
+    isMobileViewport ? 280 : 320,
+    winWidth - sideHudMargin
+  );
 
   // Gap between color groups (Red | Blue | Green | Yellow | Wild)
   const groupGapPx = isMobileViewport
@@ -90,10 +93,10 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
   const minVisibleStrip = isMobileViewport ? 16 : 24;
   const minOverlapMargin = -(cardWidthPx - minVisibleStrip);
   const maxOverlapMargin = isMobileViewport
-    ? -22
+    ? -26
     : useCompactCardSize
-    ? -38
-    : -36;
+    ? -48
+    : -42;
   const dynamicOverlapMarginPx = Math.max(
     minOverlapMargin,
     Math.min(maxOverlapMargin, rawNegativeMargin)
@@ -139,12 +142,17 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
             {colorGroups.map((group, groupIdx) => {
               const normalizedGroupOffset =
                 groupCount > 1 ? groupIdx / (groupCount - 1) - 0.5 : 0;
+              const isGroupHovered = group.cards.some(
+                (c) => c.id === hoveredCardId
+              );
 
               return (
                 <motion.div
                   layout
                   key={`color-group-${group.color}`}
-                  className={`hand-color-cluster cluster-${group.color}`}
+                  className={`hand-color-cluster cluster-${group.color} ${
+                    isGroupHovered ? 'group-has-hover' : ''
+                  }`}
                   initial={{ opacity: 0, y: 24, scale: 0.9 }}
                   animate={{
                     opacity: 1,
@@ -158,6 +166,9 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                     type: 'spring',
                     stiffness: 290,
                     damping: 26,
+                  }}
+                  style={{
+                    zIndex: isGroupHovered ? 120 : 10 + groupIdx,
                   }}
                 >
                   {/* Subtle glowing color bar reflected onto the table surface under each color group */}
@@ -215,10 +226,10 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                               : archDrop,
                             scale: isHovered
                               ? isMobileViewport
-                                ? 1.1
-                                : 1.16
+                                ? 1.05
+                                : 1.08
                               : 1,
-                            rotate: isHovered ? 0 : fanAngle,
+                            rotate: isHovered ? fanAngle * 0.3 : fanAngle,
                           }}
                           exit={{
                             opacity: 0,
@@ -238,18 +249,29 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                               idxInGroup > 0
                                 ? `${dynamicOverlapMarginPx}px`
                                 : '0px',
-                            zIndex: isHovered ? 200 : 20 + globalIndex,
+                            zIndex: 20 + globalIndex,
                           }}
                           onMouseEnter={() => {
-                            if (!isMobileViewport) {
-                              setHoveredCardId(card.id);
-                              soundFX.playCardHover();
-                            }
+                            setHoveredCardId(card.id);
+                            soundFX.playCardHover();
                           }}
-                          onMouseLeave={() => {
+                          onMouseLeave={(e) => {
+                            const related = e.relatedTarget as Node | null;
+                            if (
+                              related &&
+                              (e.currentTarget as Node).contains(related)
+                            ) {
+                              return;
+                            }
                             setHoveredCardId((prev) =>
                               prev === card.id ? null : prev
                             );
+                          }}
+                          onClick={() => {
+                            setHoveredCardId(null);
+                            if (isPlayable) {
+                              onPlayCard(card);
+                            }
                           }}
                         >
                           <UnoCard

@@ -2125,16 +2125,6 @@ export function App() {
 
       {!showHomeScreen && (
         <>
-          {/* FOREGROUND PLAYER HAND — AUTOMATICALLY ORGANIZED INTO COLOR GROUPS */}
-          <PlayerHand
-            cards={myPlayer.hand}
-            topCard={topDiscard}
-            activeColor={activeColor}
-            isPlayerTurn={isMyTurn && !pendingWildCard && !awaitingMySevenSwap}
-            pendingPenalty={pendingPenalty}
-            onPlayCard={handlePlayerPlayCard}
-          />
-
           {/* MINIMAL COMPETITIVE GAMING HUD WITH 1v1 / 1v3 / MANUAL BOT CONTROLS */}
           <GameHUD
             mode={mode}
@@ -2280,6 +2270,16 @@ export function App() {
             onOpenPrivacySettings={() =>
               handleOpenLegalRoute('privacy-settings')
             }
+          />
+
+          {/* FOREGROUND PLAYER HAND — AUTOMATICALLY ORGANIZED INTO COLOR GROUPS */}
+          <PlayerHand
+            cards={myPlayer.hand}
+            topCard={topDiscard}
+            activeColor={activeColor}
+            isPlayerTurn={isMyTurn && !pendingWildCard && !awaitingMySevenSwap}
+            pendingPenalty={pendingPenalty}
+            onPlayCard={handlePlayerPlayCard}
           />
         </>
       )}
