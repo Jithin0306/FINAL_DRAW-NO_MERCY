@@ -434,6 +434,22 @@ export function App() {
     }
   }, [winner?.id]);
 
+  // SEO Room Protection: Disallow indexing of active games and dynamic private rooms
+  useEffect(() => {
+    const robotsMeta = document.querySelector('meta[name="robots"]');
+    if (!robotsMeta) return;
+    const isDynamicSession =
+      !showHomeScreen ||
+      mpRole !== 'offline' ||
+      Boolean(window.location.hash) ||
+      window.location.search.includes('room=');
+    if (isDynamicSession) {
+      robotsMeta.setAttribute('content', 'noindex, nofollow');
+    } else {
+      robotsMeta.setAttribute('content', 'index, follow');
+    }
+  }, [showHomeScreen, mpRole]);
+
   // Broadcast authoritative state from Host whenever core state updates
   useEffect(() => {
     if (mpRole === 'host' && players.length === 4 && discardPile.length > 0) {

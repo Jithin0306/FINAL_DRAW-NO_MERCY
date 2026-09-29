@@ -1,0 +1,22 @@
+# Final Draw — Robots.txt
+# Controls search engine crawler indexation for Final Draw multiplayer card game.
+
+User-agent: *
+Allow: /
+Allow: /privacy-policy
+Allow: /privacy-settings
+Allow: /cookie-policy
+Allow: /terms
+Allow: /community-guidelines
+Allow: /security
+Allow: /download-data
+Allow: /delete-account
+Allow: /report-player
+Allow: /contact
+
+# Block ephemeral and private matchmaking game rooms from search index
+Disallow: /*?room=*
+Disallow: /*#*
+Disallow: /api/
+
+Sitemap: https://jithin0306.github.io/UNO-/sitemap.xml

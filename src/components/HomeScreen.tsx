@@ -27,6 +27,7 @@ import {
 } from '../utils/avatarImage';
 import { MusicControls } from './MusicControls';
 import { SiteFooter } from './SiteFooter';
+import { GameGuideSection } from './GameGuideSection';
 import { LegalPageRoute } from './PrivacyLegalHub';
 
 interface HomeScreenProps {
@@ -1619,6 +1620,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </AnimatePresence>
         </div>
       </motion.div>
+
+      {/* Comprehensive SEO & Informational Guide */}
+      <GameGuideSection />
 
       <SiteFooter
         onOpenLegalRoute={onOpenLegalRoute}

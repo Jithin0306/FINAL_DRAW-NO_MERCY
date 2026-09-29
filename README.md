@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🎴 UNO: Show 'Em No Mercy™ — 3D Billiards Edition
+# 🎴 FINAL DRAW — 3D Billiards Edition
 
-**An ultra-sleek, WebRTC multiplayer & AI-powered UNO Show 'Em No Mercy card game set on an atmospheric 3D emerald billiards table.**
+**An ultra-sleek, WebRTC multiplayer & AI-powered card game set on an atmospheric 3D emerald billiards table. Call DING! on your final card before victory slips away.**
 
 [![Live Demo](https://img.shields.io/badge/🎮_PLAY_LIVE_NOW-GitHub_Pages-10b981?style=for-the-badge&logo=github)](https://jithin0306.github.io/UNO-/)
 [![React 18](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
@@ -18,7 +18,12 @@
 
 ## ✨ Key Highlights
 
-- **🔥 Official Mattel *UNO Show 'Em No Mercy™* Rulebook**:
+- **🔔 The Signature "DING!" Callout Mechanic**:
+  - When holding only **one card remaining** in hand, players must hit the **`DING!`** callout button before completing their play.
+  - If caught by an opponent with one card without calling **`DING!`**, the player is penalized with mandatory card draws.
+  - Every physical card is crowned with an original luxury obsidian and gold-foil card back displaying strictly **`DING`**.
+
+- **🔥 Competitive Show 'Em No Mercy Mode (168 Cards)**:
   - **25-Card Mercy Rule Elimination**: Any player who reaches **25 or more cards** is immediately knocked out of the match (*MERCY KO*), and their cards are recycled under the discard pile.
   - **Ruthless Draw Stacking (`+2`, `+4`, `+6`, `+10`)**: Stack any Draw card of **equal or higher penalty value** onto an incoming attack and pass the combined total to the next player.
   - **Draw Until Playable**: In *No Mercy* mode, if you don't have a playable card on your turn, you must keep drawing from the deck until you draw a playable card (or hit 25 cards and get eliminated).
@@ -62,10 +67,11 @@
 
 ---
 
-## 🕹️ Official *Show 'Em No Mercy* & Table Rules Implemented
+## 🕹️ Game Rules & Table Mechanics
 
-| Rule / Feature | Effect in Game |
+| Rule / Feature | Effect in Final Draw |
 | :--- | :--- |
+| **Calling DING!** | Hold **1 card remaining** and call **`DING!`** before ending your turn. If caught without calling, draw penalty cards! |
 | **Mercy Rule (25 Cards)** | Hold **25 or more cards** at any point and you are **immediately eliminated** (`ELIMINATED`) with a full-stage knockout animation. |
 | **1-Minute Turn Timer & Auto-Move** | Each turn has a **60-second (`01:00`)** timer; if it expires, a random playable card is automatically played (or drawn). |
 | **3-Round AFK Elimination** | Timing out for **3 turns (`AFK 3/3`)** immediately eliminates the inactive player from the match. |
@@ -106,8 +112,8 @@ Open `http://localhost:5173` in your browser.
 # Build production bundle into dist/
 npm run build
 
-# Deploy to GitHub Pages
-npm run deploy
+# Preview production build locally
+npm run preview
 ```
 
 ---
@@ -119,28 +125,31 @@ src/
 ├── components/
 │   ├── CardFlightLayer.tsx    # Bezier card flight trajectories & table shockwaves
 │   ├── CenterTableArea.tsx    # 3D Draw Pile, Discard Pile & Pulsing Active Color Ring
-│   ├── GameHUD.tsx            # In-game HUD, 60s Turn Timer, Elimination Cinema, Rematch & Dismiss Modal
-│   ├── HomeScreen.tsx         # 2-Column No Mercy Console, Gallery Avatar Uploader & 4-Seat Live Lobby Roster
+│   ├── GameGuideSection.tsx   # Comprehensive SEO game guide, rules & interactive FAQ
+│   ├── GameHUD.tsx            # In-game HUD, 60s Turn Timer, Elimination Cinema, DING! button & Rematch Modal
+│   ├── HomeScreen.tsx         # 2-Column Final Draw Console, Gallery Avatar Uploader & 4-Seat Live Lobby Roster
 │   ├── MusicControls.tsx      # Looping Background Music Mute, Volume (- / Slider / +) & Track Switcher
-│   ├── OpponentSeat.tsx       # Top/Left/Right seats, Robot avatars, AFK badges & Eliminated Tombstones
+│   ├── OpponentSeat.tsx       # Top/Left/Right seats, Robot avatars, AFK badges & DING! status alerts
 │   ├── PlayerHand.tsx         # Auto-sorted color clusters & responsive 100%-zoom/mobile hand math
 │   ├── PoolTableStage.tsx     # 3D emerald billiards table cabinet, brass pockets & overhead lighting
-│   └── UnoCard.tsx            # High-contrast physical UNO & No Mercy card renderer
+│   ├── PrivacyLegalHub.tsx    # DPDP Act compliant privacy policy, privacy controls & data export
+│   ├── SiteFooter.tsx         # Quick access legal, rules & support footer dropdowns
+│   └── UnoCard.tsx            # High-contrast physical Final Draw cards & DING gold-foil card back
 ├── styles/
-│   └── billiards.css          # 3D table shaders, Elimination Cinema, Lobby Roster, Timer & mobile styles
+│   └── billiards.css          # 3D table shaders, Elimination Cinema, Lobby Roster, Timer & guide styles
 ├── types/
 │   └── uno.ts                 # Core TypeScript interfaces for cards, seats, eliminations & network sync
 ├── utils/
 │   ├── avatarImage.ts         # Local gallery image cropper/compressor & Cyber-Robot SVG generator
-│   ├── deckBuilder.ts         # Official 168-card No Mercy & Classic deck generator + play validation
+│   ├── deckBuilder.ts         # 168-card No Mercy & Classic deck generator + play validation
 │   ├── handSorting.ts         # Strict color-group & rank hand organizer
 │   ├── multiplayerManager.ts  # PeerJS WebRTC Host/Client state, Lobby sync & Rematch messaging
-│   └── soundEffects.ts        # Copyright-free looping BGM synthesizer + card/timer/elimination SFX
+│   └── soundEffects.ts        # Looping BGM synthesizer + crisp DING bell chime & elimination SFX
 └── App.tsx                    # Authoritative game loop, 60s Timer/AFK engine, AI watchdog & P2P hooks
 ```
 
 ---
 
-## 📄 License
+## 📄 Privacy & Compliance
 
-This project is created for educational and entertainment purposes. *UNO®* and *UNO Show 'Em No Mercy™* are registered trademarks of Mattel, Inc.
+Final Draw adheres to privacy-by-design standards aligned with the **Digital Personal Data Protection (DPDP) Act, 2023**. No personal data is stored on remote servers; all multiplayer communication is conducted directly between peer browsers via WebRTC data channels.

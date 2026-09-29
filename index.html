@@ -16,13 +16,125 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://*.peerjs.com wss://*.peerjs.com; media-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
-    <title>FINAL DRAW — Multiplayer Card Game</title>
+    <title>Final Draw — Multiplayer Card Game | Play Online Free</title>
+    <meta
+      name="description"
+      content="Play Final Draw online — the high-stakes, real-time multiplayer card game. Stack draw penalties (+2 to +10), swap hands on 7, survive 25-card Mercy KO, and remember to call DING! on your final card."
+    />
+    <meta
+      name="keywords"
+      content="Final Draw, Final Draw card game, play Final Draw online, Final Draw multiplayer, DING card game, online card games with friends, browser card game, No Mercy card game"
+    />
+    <meta name="author" content="Final Draw" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0f0d" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jithin0306.github.io/UNO-/" />
+
+    <!-- Favicon & Web App Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jithin0306.github.io/UNO-/" />
+    <meta property="og:site_name" content="Final Draw" />
+    <meta property="og:title" content="Final Draw — Multiplayer Card Game | Play Online Free" />
+    <meta
+      property="og:description"
+      content="Real-time multiplayer card game on an atmospheric billiards table. Stack draw cards (+2 to +10), trigger color roulette, survive 25-card Mercy KO, and call DING! on your final card."
+    />
+    <meta property="og:image" content="https://jithin0306.github.io/UNO-/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jithin0306.github.io/UNO-/" />
+    <meta name="twitter:title" content="Final Draw — Multiplayer Card Game" />
+    <meta
+      name="twitter:description"
+      content="Play Final Draw online with friends or instant matchmaking. Stack penalties, swap hands on 7, and call DING! on your final card."
+    />
+    <meta name="twitter:image" content="https://jithin0306.github.io/UNO-/og-image.png" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;0,700;1,700&family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://jithin0306.github.io/UNO-/#website",
+          "url": "https://jithin0306.github.io/UNO-/",
+          "name": "Final Draw",
+          "description": "Real-time multiplayer card game playable in your browser. Stack penalties, survive Mercy KO, and call DING! on your final card.",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "VideoGame",
+          "@id": "https://jithin0306.github.io/UNO-/#game",
+          "name": "Final Draw",
+          "url": "https://jithin0306.github.io/UNO-/",
+          "description": "High-stakes multiplayer browser card game featuring 168-card No Mercy decks, 25-card KO elimination, 7-0 hand passing, and DING! final-card callouts.",
+          "genre": ["Card Game", "Casual Game", "Multiplayer Game"],
+          "playMode": "MultiPlayer",
+          "gamePlatform": ["Web Browser"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Any"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://jithin0306.github.io/UNO-/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Final Draw?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Final Draw is a fast-paced multiplayer card game played on an elegant digital billiards table. Players compete to empty their hands by matching cards by color, rank, or action while navigating stacking penalties, 7-0 hand swaps, and 25-card Mercy KO eliminations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does DING! mean in Final Draw?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DING! is the compulsory callout when a player holds only one card remaining in their hand. If a player fails to call DING! before ending their turn and an opponent catches them, they must draw penalty cards from the Draw Pile."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does multiplayer work in Final Draw?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Final Draw uses peer-to-peer WebRTC data channels for low-latency gameplay without central game servers. You can create private rooms with 5-letter codes, auto-matchmake with other online players, or play offline duels against AI bots."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the rules of Mercy KO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Under No Mercy rules, any player holding 25 or more cards in hand is instantly knocked out from the table. The last remaining player standing wins the match."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

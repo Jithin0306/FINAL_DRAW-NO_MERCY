@@ -2,6 +2,16 @@
   "name": "final-draw",
   "private": true,
   "version": "1.0.0",
+  "description": "Final Draw — Fast-paced multiplayer card game with No Mercy rules, 25-card KO, and DING! callouts.",
+  "keywords": [
+    "final-draw",
+    "card-game",
+    "multiplayer",
+    "webrtc",
+    "p2p",
+    "react",
+    "typescript"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
