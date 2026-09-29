@@ -1509,7 +1509,7 @@ export function App() {
         }
         executePlayerDraw(msg.seatIndex);
       } else if (msg.type === 'CALL_UNO') {
-        soundFX.playSpecialEffect('uno');
+        soundFX.playSpecialEffect('ding');
         setPlayers((prev) =>
           prev.map((p, idx) =>
             idx === msg.seatIndex ? { ...p, calledUno: true } : p
@@ -2214,7 +2214,7 @@ export function App() {
               setMuted(!muted);
             }}
             onCallUno={() => {
-              soundFX.playSpecialEffect('uno');
+              soundFX.playSpecialEffect('ding');
               if (mpRole === 'client') {
                 mpManager.sendActionToHost({
                   type: 'CALL_UNO',
@@ -2229,7 +2229,7 @@ export function App() {
                 triggerTableEffect({
                   type: 'wild_shift',
                   color: activeColor,
-                  label: 'UNO CALLED!',
+                  label: 'DING! CALLED!',
                 });
               }
             }}

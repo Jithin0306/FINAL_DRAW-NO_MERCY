@@ -38,10 +38,10 @@ export const CenterTableArea: React.FC<CenterTableAreaProps> = ({
 
   return (
     <div className="center-table-focal-zone">
-      {/* Felt-inlaid UNO Table Watermark above the center ring */}
+      {/* Felt-inlaid FINAL DRAW Table Watermark above the center ring */}
       <div className="felt-inlay-header" aria-hidden="true">
         <span className="inlay-diamonds">◆ ◆ ◆</span>
-        <span className="inlay-brand">UNO</span>
+        <span className="inlay-brand">FINAL DRAW</span>
         <span className="inlay-diamonds">◆ ◆ ◆</span>
       </div>
 

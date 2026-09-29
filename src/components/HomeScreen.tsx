@@ -533,7 +533,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           {/* Layered UNO + SHOW 'EM + NO MERCY Emblem */}
           <div className="nm-emblem-stack">
             <div className="nm-uno-tilted-pill">
-              <span>UNO</span>
+              <span>FINAL DRAW</span>
             </div>
             <div className="nm-show-em-badge">SHOW &apos;EM</div>
             <div className="nm-title-wrapper">
@@ -952,7 +952,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                         if (mode !== 'classic') onToggleMode();
                       }}
                     >
-                      CLASSIC UNO
+                      CLASSIC FINAL DRAW
                     </button>
                   </div>
                 </div>
@@ -1549,11 +1549,24 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                     <span>BACK</span>
                   </button>
                   <span className="nm-subpanel-title">
-                    OFFICIAL SHOW &apos;EM NO MERCY RULES
+                    OFFICIAL FINAL DRAW RULES
                   </span>
                 </div>
 
                 <div className="nm-rules-cards-list">
+                  <div className="nm-rule-item">
+                    <span className="nm-rule-pill pill-amber">FINAL CARD</span>
+                    <div>
+                      <strong>Calling DING!</strong>
+                      <p>
+                        When you have only one card left in your hand, you must
+                        call <strong>DING!</strong> before finishing your turn.
+                        If opponents catch you holding one card without calling,
+                        you must draw penalty cards!
+                      </p>
+                    </div>
+                  </div>
+
                   <div className="nm-rule-item">
                     <span className="nm-rule-pill pill-rose">MERCY KO</span>
                     <div>

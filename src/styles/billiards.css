@@ -987,7 +987,7 @@ body,
   pointer-events: none;
 }
 
-/* Physical Card Back Design (Obsidian & Gold Foil) */
+/* Physical Card Back Design (Obsidian & Gold Foil - FINAL DRAW / DING) */
 .uno-physical-card-back {
   border-radius: 12px;
   padding: 4px;
@@ -995,6 +995,9 @@ body,
   box-shadow:
     0 2px 0 #1c1917,
     0 8px 18px rgba(0, 0, 0, 0.82);
+  user-select: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .uno-physical-card-back.size-xs {
@@ -1004,58 +1007,107 @@ body,
   padding: 2.5px;
 }
 
+.uno-physical-card-back.size-sm {
+  width: 72px;
+  height: 104px;
+  border-radius: 10px;
+  padding: 3.5px;
+}
+
 .uno-physical-card-back.size-md {
   width: 102px;
   height: 148px;
   border-radius: 13px;
 }
 
+.uno-physical-card-back.size-lg {
+  width: 132px;
+  height: 192px;
+  border-radius: 15px;
+  padding: 5px;
+}
+
 .card-back-surface {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: radial-gradient(circle at 50% 40%, #1c211f 0%, #090c0b 100%);
-  padding: 4px;
+  background: radial-gradient(circle at 50% 45%, #18201d 0%, #080b0a 100%);
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .card-back-gold-border {
   width: 100%;
   height: 100%;
   border-radius: 6px;
-  border: 1px solid rgba(245, 158, 11, 0.58);
+  border: 1px solid rgba(245, 158, 11, 0.65);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  background:
+    radial-gradient(ellipse at center, rgba(245, 158, 11, 0.09) 0%, transparent 70%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1.5px, transparent 1.5px, transparent 6px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1.5px, transparent 1.5px, transparent 6px);
 }
 
-.card-back-oval {
-  width: 82%;
-  height: 70%;
-  border-radius: 50%;
-  transform: rotate(-26deg);
-  border: 1.5px solid rgba(251, 191, 36, 0.72);
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, rgba(0, 0, 0, 0.7) 100%);
+.card-back-corner-pip {
+  position: absolute;
+  font-size: 7px;
+  color: rgba(245, 158, 11, 0.75);
+  line-height: 1;
+  pointer-events: none;
+  text-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
+}
+.card-back-corner-pip.pip-tl { top: 3px; left: 4px; }
+.card-back-corner-pip.pip-tr { top: 3px; right: 4px; }
+.card-back-corner-pip.pip-bl { bottom: 3px; left: 4px; }
+.card-back-corner-pip.pip-br { bottom: 3px; right: 4px; }
+
+.size-xs .card-back-corner-pip {
+  display: none;
+}
+
+.card-back-center-badge {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(251, 191, 36, 0.85);
+  background: linear-gradient(135deg, rgba(24, 28, 26, 0.96), rgba(10, 13, 12, 0.98));
+  box-shadow:
+    0 0 12px rgba(245, 158, 11, 0.25),
+    inset 0 0 6px rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.size-xs .card-back-center-badge {
+  padding: 2px 4px;
+  border-radius: 4px;
+  border-width: 1px;
 }
 
 .card-back-logo {
-  transform: rotate(26deg);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 1.5px;
-  color: var(--gold-champagne);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  font-family: var(--font-condensed, 'Rajdhani', sans-serif);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  background: linear-gradient(180deg, #fef08a 0%, #f59e0b 60%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  line-height: 1;
 }
 
 .size-xs .card-back-logo {
-  font-size: 9px;
-  letter-spacing: 0.5px;
+  font-size: 8.5px;
+  letter-spacing: 0.8px;
 }
 
 /* ==================================================
@@ -2427,24 +2479,27 @@ body,
 }
 
 .nm-uno-tilted-pill {
-  transform: rotate(-10deg) translateY(6px);
-  padding: 4px 22px;
+  transform: rotate(-6deg) translateY(4px);
+  padding: 5px 20px;
   border-radius: 999px;
   background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
-  border: 2.5px solid #fde047;
+  border: 2px solid #fde047;
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.8),
     0 0 18px rgba(239, 68, 68, 0.45);
   z-index: 6;
+  white-space: nowrap;
 }
 
 .nm-uno-tilted-pill span {
   font-family: var(--font-condensed);
-  font-size: 26px;
+  font-size: 19px;
   font-weight: 900;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: #ffffff;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+  display: block;
 }
 
 .nm-show-em-badge {

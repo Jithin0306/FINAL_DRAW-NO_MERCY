@@ -294,11 +294,16 @@ export const UnoCardBack: React.FC<UnoCardBackProps> = ({
     <div
       className={`uno-physical-card-back size-${size} ${className}`}
       style={style}
+      aria-label="Final Draw Card Back"
     >
       <div className="card-back-surface">
         <div className="card-back-gold-border">
-          <div className="card-back-oval">
-            <span className="card-back-logo">UNO</span>
+          <div className="card-back-corner-pip pip-tl">◆</div>
+          <div className="card-back-corner-pip pip-tr">◆</div>
+          <div className="card-back-corner-pip pip-bl">◆</div>
+          <div className="card-back-corner-pip pip-br">◆</div>
+          <div className="card-back-center-badge">
+            <span className="card-back-logo">DING</span>
           </div>
         </div>
       </div>

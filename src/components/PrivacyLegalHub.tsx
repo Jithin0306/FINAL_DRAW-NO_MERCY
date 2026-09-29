@@ -136,7 +136,7 @@ export const PrivacyLegalHub: React.FC<PrivacyLegalHubProps> = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `uno-data-export-${playerId}.json`;
+    a.download = `final-draw-data-export-${playerId}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

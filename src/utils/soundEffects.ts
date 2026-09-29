@@ -486,7 +486,7 @@ class SoundEngine {
   }
 
   public playSpecialEffect(
-    type: 'reverse' | 'penalty' | 'uno' | 'win' | 'elimination'
+    type: 'reverse' | 'penalty' | 'uno' | 'ding' | 'win' | 'elimination'
   ) {
     if (this.muted) return;
     this.init();
@@ -537,21 +537,23 @@ class SoundEngine {
         o.start(now + idx * 0.11);
         o.stop(now + idx * 0.11 + 0.55);
       });
-    } else if (type === 'uno' || type === 'win') {
-      const notes =
-        type === 'win' ? [523.25, 659.25, 783.99, 1046.5] : [587.33, 880];
+    } else if (type === 'ding' || type === 'uno' || type === 'win') {
+      const isWin = type === 'win';
+      const notes = isWin
+        ? [523.25, 659.25, 783.99, 1046.5]
+        : [1046.5, 1318.51, 1567.98]; // Crisp metallic bell chime (C6 - E6 - G6)
       notes.forEach((freq, idx) => {
         if (!this.ctx) return;
         const o = this.ctx.createOscillator();
         const g = this.ctx.createGain();
-        o.type = 'triangle';
-        o.frequency.setValueAtTime(freq, now + idx * 0.08);
-        g.gain.setValueAtTime(0.08, now + idx * 0.08);
-        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.24);
+        o.type = isWin ? 'triangle' : 'sine';
+        o.frequency.setValueAtTime(freq, now + idx * 0.04);
+        g.gain.setValueAtTime(0.09, now + idx * 0.04);
+        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.04 + (isWin ? 0.24 : 0.42));
         o.connect(g);
         g.connect(this.ctx.destination);
-        o.start(now + idx * 0.08);
-        o.stop(now + idx * 0.08 + 0.25);
+        o.start(now + idx * 0.04);
+        o.stop(now + idx * 0.04 + (isWin ? 0.25 : 0.45));
       });
     }
   }

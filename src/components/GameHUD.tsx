@@ -414,6 +414,8 @@ export const GameHUD: React.FC<GameHUDProps> = ({
               <button
                 type="button"
                 disabled={!canCallUnoNow}
+                title={hasCalledUno ? 'DING! already called' : 'Call DING! on your final card'}
+                aria-label={hasCalledUno ? 'DING! called' : 'Call DING!'}
                 className={`table-action-btn btn-uno ${
                   canCallUnoNow ? 'uno-ready-pulse' : 'disabled'
                 } ${hasCalledUno ? 'uno-called' : ''}`}
@@ -421,7 +423,7 @@ export const GameHUD: React.FC<GameHUDProps> = ({
                   if (canCallUnoNow) onCallUno();
                 }}
               >
-                <span>{hasCalledUno ? 'UNO CALLED!' : 'UNO'}</span>
+                <span>{hasCalledUno ? 'DING! CALLED' : 'DING!'}</span>
               </button>
             );
           })()}
@@ -755,7 +757,7 @@ export const GameHUD: React.FC<GameHUDProps> = ({
                 }}
                 transition={{ duration: 1.65, ease: 'easeOut' }}
               >
-                <span>UNO</span>
+                <span>FINAL DRAW</span>
               </motion.div>
             ))}
 
