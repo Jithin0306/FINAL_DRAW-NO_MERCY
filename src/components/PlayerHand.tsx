@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ActiveColor, UnoCardData } from '../types/uno';
 import { groupSortedHandByColor } from '../utils/handSorting';
@@ -23,7 +23,6 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
   pendingPenalty,
   onPlayCard,
 }) => {
-  const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
   const [winWidth, setWinWidth] = useState<number>(() =>
     typeof window !== 'undefined' ? window.innerWidth : 1366
   );
@@ -36,7 +35,7 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
 
   // Automatically sort and partition into strict color groups:
   // RED (numbers -> specials) | BLUE (numbers -> specials) | GREEN | YELLOW | WILD
-  const colorGroups = groupSortedHandByColor(cards);
+  const colorGroups = useMemo(() => groupSortedHandByColor(cards), [cards]);
   const totalCards = cards.length;
   const groupCount = colorGroups.length;
 
@@ -56,7 +55,7 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
     cardRenderSize === 'sm' ? 68 : cardRenderSize === 'md' ? 102 : 116;
 
   // Leave horizontal safety margin so cards stay comfortably inside the playable table zone
-  // and clear the bottom-left player avatar pill and bottom-right UNO/DRAW action controls
+  // and clear the bottom-left player avatar pill and bottom-right DING/DRAW action controls
   const sideHudMargin = isMobileViewport ? 18 : winWidth <= 1180 ? 210 : 250;
   const availableW = Math.max(
     isMobileViewport ? 280 : 320,
@@ -128,9 +127,28 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
         }`}
       />
 
+      {/* Prominent High-Visibility YOUR TURN Banner */}
+      <AnimatePresence>
+        {isPlayerTurn && (
+          <motion.div
+            key="your-turn-pill"
+            className="player-your-turn-banner-anchor"
+            initial={{ opacity: 0, y: 14, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.92 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+          >
+            <div className="player-your-turn-banner">
+              <span className="your-turn-dot" />
+              <span className="your-turn-label">YOUR TURN</span>
+              <span className="your-turn-dot" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="player-hand-scroll-viewport">
-        <motion.div
-          layout
+        <div
           className="player-hand-groups-row"
           style={{
             gap: `${groupGapPx}px`,
@@ -142,17 +160,11 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
             {colorGroups.map((group, groupIdx) => {
               const normalizedGroupOffset =
                 groupCount > 1 ? groupIdx / (groupCount - 1) - 0.5 : 0;
-              const isGroupHovered = group.cards.some(
-                (c) => c.id === hoveredCardId
-              );
 
               return (
                 <motion.div
-                  layout
                   key={`color-group-${group.color}`}
-                  className={`hand-color-cluster cluster-${group.color} ${
-                    isGroupHovered ? 'group-has-hover' : ''
-                  }`}
+                  className={`hand-color-cluster cluster-${group.color}`}
                   initial={{ opacity: 0, y: 24, scale: 0.9 }}
                   animate={{
                     opacity: 1,
@@ -164,11 +176,11 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                   exit={{ opacity: 0, scale: 0.85, y: 15 }}
                   transition={{
                     type: 'spring',
-                    stiffness: 290,
+                    stiffness: 300,
                     damping: 26,
                   }}
                   style={{
-                    zIndex: isGroupHovered ? 120 : 10 + groupIdx,
+                    zIndex: 10 + groupIdx,
                   }}
                 >
                   {/* Subtle glowing color bar reflected onto the table surface under each color group */}
@@ -198,17 +210,13 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                       const isPlayable =
                         isPlayerTurn &&
                         canPlayCard(card, topCard, activeColor, pendingPenalty);
-                      const isHovered = hoveredCardId === card.id;
 
                       return (
                         <motion.div
-                          layout
                           key={card.id}
                           className={`hand-card-slot ${
                             idxInGroup > 0 ? 'overlap-prev' : 'first-in-group'
-                          } ${isHovered ? 'is-hovered' : ''} ${
-                            isPlayable ? 'slot-playable' : 'slot-idle'
-                          }`}
+                          } ${isPlayable ? 'slot-playable' : 'slot-idle'}`}
                           initial={{
                             opacity: 0,
                             y: -70,
@@ -217,19 +225,11 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                           }}
                           animate={{
                             opacity: 1,
-                            y: isHovered
-                              ? isMobileViewport
-                                ? -22
-                                : -38
-                              : isPlayable
+                            y: isPlayable
                               ? archDrop - (isMobileViewport ? 4 : 6)
                               : archDrop,
-                            scale: isHovered
-                              ? isMobileViewport
-                                ? 1.05
-                                : 1.08
-                              : 1,
-                            rotate: isHovered ? fanAngle * 0.3 : fanAngle,
+                            scale: 1,
+                            rotate: fanAngle,
                           }}
                           exit={{
                             opacity: 0,
@@ -240,9 +240,9 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                           }}
                           transition={{
                             type: 'spring',
-                            stiffness: 360,
+                            stiffness: 340,
                             damping: 26,
-                            mass: 0.72,
+                            mass: 0.68,
                           }}
                           style={{
                             marginLeft:
@@ -252,40 +252,22 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
                             zIndex: 20 + globalIndex,
                           }}
                           onMouseEnter={() => {
-                            setHoveredCardId(card.id);
                             soundFX.playCardHover();
                           }}
-                          onMouseLeave={(e) => {
-                            const related = e.relatedTarget as Node | null;
-                            if (
-                              related &&
-                              (e.currentTarget as Node).contains(related)
-                            ) {
-                              return;
-                            }
-                            setHoveredCardId((prev) =>
-                              prev === card.id ? null : prev
-                            );
-                          }}
                           onClick={() => {
-                            setHoveredCardId(null);
                             if (isPlayable) {
                               onPlayCard(card);
                             }
                           }}
                         >
-                          <UnoCard
-                            card={card}
-                            size={cardRenderSize}
-                            playable={isPlayable}
-                            dimmed={isPlayerTurn && !isPlayable}
-                            onClick={() => {
-                              setHoveredCardId(null);
-                              if (isPlayable) {
-                                onPlayCard(card);
-                              }
-                            }}
-                          />
+                          <div className="card-hover-elevator">
+                            <UnoCard
+                              card={card}
+                              size={cardRenderSize}
+                              playable={isPlayable}
+                              dimmed={isPlayerTurn && !isPlayable}
+                            />
+                          </div>
                         </motion.div>
                       );
                     })}
@@ -294,7 +276,7 @@ export const PlayerHand: React.FC<PlayerHandProps> = ({
               );
             })}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

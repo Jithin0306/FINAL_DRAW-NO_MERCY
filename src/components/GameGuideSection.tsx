@@ -139,12 +139,12 @@ export const GameGuideSection: React.FC = () => {
 
             <details className="fd-faq-item">
               <summary className="fd-faq-summary">
-                <span>What is the difference between DING! and UNO?</span>
+                <span>What does DING! mean in Final Draw?</span>
                 <span className="fd-faq-chevron">▾</span>
               </summary>
               <div className="fd-faq-content">
                 <p>
-                  <strong>Final Draw</strong> is an independent digital card game inspired by high-stakes multiplayer party card mechanics. In Final Draw, the compulsory single-card callout is <strong>DING!</strong>. The back of every card prominently displays <strong>DING</strong> within a luxury gold-ruled border, accompanied by custom synthetic chime audio.
+                  <strong>DING!</strong> is the compulsory callout when a player holds only one card remaining in their hand. The back of every card prominently displays <strong>DING</strong> within a luxury gold-ruled border. If a player fails to call <strong>DING!</strong> before ending their turn and an opponent catches them, they must draw penalty cards from the Draw Pile.
                 </p>
               </div>
             </details>

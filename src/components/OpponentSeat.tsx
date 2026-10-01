@@ -136,9 +136,9 @@ export const OpponentSeat: React.FC<OpponentSeatProps> = ({
           </div>
           <div className="opponent-status-sub">
             {isActiveTurn ? (
-              <span className="status-thinking">PLAYING TURN...</span>
+              <span className="status-thinking">● PLAYING TURN</span>
             ) : cardCount === 1 ? (
-              <span className="status-uno-alert">DING!</span>
+              <span className="status-uno-alert">🔔 DING! (1 CARD)</span>
             ) : (
               <span className="status-role">
                 {player.isAI ? 'BOT' : 'ONLINE PLAYER'}

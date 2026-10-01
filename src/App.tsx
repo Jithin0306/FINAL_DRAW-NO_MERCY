@@ -234,7 +234,7 @@ export function App() {
       setEffects((prev) => [...prev, fullFx]);
       window.setTimeout(() => {
         setEffects((prev) => prev.filter((e) => e.id !== id));
-      }, 1150);
+      }, 1500);
     },
     []
   );
@@ -296,7 +296,7 @@ export function App() {
       setFlights((prev) => [...prev, localFlight]);
       window.setTimeout(() => {
         setFlights((prev) => prev.filter((f) => f.id !== id));
-      }, 480 + delayMs);
+      }, 640 + delayMs);
     },
     []
   );
@@ -1629,7 +1629,7 @@ export function App() {
         setFlights((prev) => [...prev, localFlight]);
         window.setTimeout(() => {
           setFlights((prev) => prev.filter((f) => f.id !== localFlight.id));
-        }, 520);
+        }, 640);
       }
 
       if (
@@ -1641,7 +1641,7 @@ export function App() {
         setEffects((prev) => [...prev, fx]);
         window.setTimeout(() => {
           setEffects((prev) => prev.filter((e) => e.id !== fx.id));
-        }, 1100);
+        }, 1500);
       }
     };
   }, [
@@ -1659,6 +1659,14 @@ export function App() {
   const activeBotCount = players.filter((p) => p.isActive && p.isAI).length;
   const isMyTurn = turnIndex === mySeatIndex && activeTotalPlayers >= 2;
   const awaitingMySevenSwap = awaitingSevenSwapForSeat === mySeatIndex;
+
+  const prevMyTurnRef = useRef<boolean>(false);
+  useEffect(() => {
+    if (isMyTurn && !prevMyTurnRef.current && !winner && !showHomeScreen) {
+      soundFX.playYourTurn();
+    }
+    prevMyTurnRef.current = isMyTurn;
+  }, [isMyTurn, winner, showHomeScreen]);
 
   const handlePlayerPlayCard = (card: UnoCardData) => {
     if (!isMyTurn || pendingWildCard || awaitingMySevenSwap || winner) {
