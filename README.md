@@ -9,88 +9,101 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite_5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![PeerJS WebRTC](https://img.shields.io/badge/PeerJS_WebRTC-Multiplayer-f43f5e?style=for-the-badge)](https://peerjs.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg?style=for-the-badge)](LICENSE)
 
-### 🌐 **Live Game Link:** [https://jithin0306.github.io/UNO-/](https://jithin0306.github.io/UNO-/)
+### 🌐 **Play Instantly in Browser:** [https://jithin0306.github.io/UNO-/](https://jithin0306.github.io/UNO-/)
 
 </div>
 
 ---
 
-## ✨ Key Highlights
+## 🌟 Overview
 
-- **🔔 The Signature "DING!" Callout Mechanic**:
-  - When holding only **one card remaining** in hand, players must hit the **`DING!`** callout button before completing their play.
-  - If caught by an opponent with one card without calling **`DING!`**, the player is penalized with mandatory card draws.
-  - Every physical card is crowned with an original luxury obsidian and gold-foil card back displaying strictly **`DING`**.
-
-- **🔥 Competitive No Mercy Mode (168 Cards)**:
-  - **25-Card Mercy Rule Elimination**: Any player who reaches **25 or more cards** is immediately knocked out of the match (*MERCY KO*), and their cards are recycled under the discard pile.
-  - **Ruthless Draw Stacking (`+2`, `+4`, `+6`, `+10`)**: Stack any Draw card of **equal or higher penalty value** onto an incoming attack and pass the combined total to the next player.
-  - **Draw Until Playable**: In *No Mercy* mode, if you don't have a playable card on your turn, you must keep drawing from the deck until you draw a playable card (or hit 25 cards and get eliminated).
-  - **7 Swap & 0 Pass**: Playing a **7** forces a hand swap with an active player of your choice; playing a **0** rotates everyone's hands in the current direction of play.
-  - **Special Action & Wild Cards**: Includes **Skip Everyone** (play again immediately), **Discard All** (drop all cards of that color from your hand), **Wild Reverse Draw 4**, **Wild Draw 6**, **Wild Draw 10**, and **Wild Color Roulette**.
-
-- **⏱️ 1-Minute (`01:00`) Turn Countdown Timer, Auto-Move & 3-Round AFK Elimination**:
-  - **60-Second Turn Timer**: Every turn features a live `01:00` countdown clock and color-shifting progress bar (emerald → amber → pulsing crimson with countdown ticks in the final 10 seconds), synchronized across all multiplayer peers.
-  - **Automatic Card Play / Draw**: If a player does not make a move within 1 minute (`00:00`), a random playable card is automatically thrown from their hand (or drawn from the deck if no card is playable) and an AFK strike (`AFK 1/3`, `AFK 2/3`) is recorded.
-  - **3-Round Inactivity Elimination**: If a player fails to act for **3 rounds** (`AFK 3/3`), they are immediately eliminated from the match (`ELIMINATED (3 AFK)`).
-
-- **💀 Full-Stage Cinematic Elimination Animation (Synced Across All Players)**:
-  - Whenever any player is knocked out—either via the **25-Card Mercy Rule** or **3-Round AFK Disqualification**—every player at the table simultaneously sees a full-screen **Cinematic Elimination Showcase** featuring crimson shockwave rings, flying card shards, the eliminated player's portrait with an animated `✕` knockout stamp, survivor count pill, and sub-bass elimination gong.
-  - Eliminated seats convert into crossed-out **Tombstone Badges (`💀 ELIMINATED`)** on the table.
-
-- **🌐 Real-Time P2P Online Multiplayer, Live 4-Seat Lobby Roster & Instant Rematch**:
-  - Powered by **PeerJS WebRTC** data channels with zero backend required.
-  - **Seamless Host Migration & AI Takeover**: If the room Host leaves (`[ EXIT ]`, `Leave Room`, or closes their browser tab) in the middle of a match, Host authority (`👑 ROOM HOST`) is **automatically transferred** to the next connected player, any other peers automatically re-link to the new Host, and the departed player's seat seamlessly continues playing as an AI Bot holding their exact hand so the game **never stops**.
-  - **Live `PLAYERS IN LOBBY` Roster**: Host a private room (`#XXXXX`) and watch friends join in real time across all **4 Table Seats (`Seat 1` – `Seat 4`)** with their uploaded Profile Pictures, Display Names, `👑 HOST` / `● JOINED` status badges, and optional `+ BOT` / `✕` seat toggles before launching the table.
-  - **Synchronized Table Entry**: Clicking **`ENTER GAME TABLE`** deals fresh hands and automatically brings all connected lobby friends into the 3D game table simultaneously.
-  - **In-Room `REMATCH / PLAY AGAIN` & Dismiss Controls**: After winning or losing a match, **any player or the room Host** can click **`REMATCH / PLAY AGAIN`** to immediately deal a fresh match in the same room (reviving any eliminated players), or click **`DISMISS`** (`✕`) to inspect the final table state without leaving the room.
-
-- **🎵 100% Copyright-Free Looping Background Music & Live Volume Capsule**:
-  - Built-in polyphonic Web Audio API background music sequencer playing **100% copyright-free loops** with studio lowpass warmth and stereo delay.
-  - Switch anytime between **3 original loops**:
-    1. **Emerald Lounge (`92 BPM`)** — Smooth jazz-lounge Rhodes chords & walking sub-bass
-    2. **No Mercy Pulse (`108 BPM`)** — Dark synthwave arena groove & arpeggio
-    3. **Midnight Lo-Fi (`82 BPM`)** — Mellow lo-fi chillhop keys & beat
-  - Interactive **Music Controls Capsule** on both the Home Screen and In-Game HUD with **Mute/Unmute**, **Volume `−` / `+` buttons**, **0%–100% Volume Slider**, and **Track Switcher** (independent from card SFX mute).
-
-- **📸 Custom Profile Picture & Identity Sync**:
-  - Upload your own **Profile Picture** directly from your device's local file gallery (`JPG`, `PNG`, `WEBP`).
-  - Automatic `160×160` center-crop & compression persists your avatar in `localStorage` and broadcasts it in real time to all connected friends in the lobby and at the table.
-
-- **🤖 Smart Cyber-Bots & Watchdog Turn Engine**:
-  - Choose **1 vs 1 Duel**, **1 vs 3 Full Table**, or **Empty Table** (`0 Bots`).
-  - Custom **3D Cyber-Robot Profile Avatars** (*Kairo*, *Nyx*, and *Jax*) with natural human-paced reaction timing (`1.2s – 2.2s`) and a continuous watchdog turn engine so bots never stall on consecutive/extra turns.
-
-- **📱 Desktop & Mobile Optimized (Portrait + Landscape)**:
-  - Automatic color-grouped player hand (`Red` → `Blue` → `Green` → `Yellow` → `Wild`) with dynamic viewport scaling so 100% of your cards stay visible at `100%` browser zoom and on mobile screens.
+**Final Draw** is an original, fast-paced web card game combining the strategic depth of modern card battles with the tactile luxury of an emerald-felt billiards club. Built from the ground up on modern web standards (React 18, TypeScript, and PeerJS WebRTC), Final Draw requires zero backend servers, zero account signups, and delivers instant, synchronized peer-to-peer multiplayer directly in your browser.
 
 ---
 
-## 🕹️ Game Rules & Table Mechanics
+## ✨ Key Features & Mechanics
 
-| Rule / Feature | Effect in Final Draw |
-| :--- | :--- |
-| **Calling DING!** | Hold **1 card remaining** and call **`DING!`** before ending your turn. If caught without calling, draw penalty cards! |
-| **Mercy Rule (25 Cards)** | Hold **25 or more cards** at any point and you are **immediately eliminated** (`ELIMINATED`) with a full-stage knockout animation. |
-| **1-Minute Turn Timer & Auto-Move** | Each turn has a **60-second (`01:00`)** timer; if it expires, a random playable card is automatically played (or drawn). |
-| **3-Round AFK Elimination** | Timing out for **3 turns (`AFK 3/3`)** immediately eliminates the inactive player from the match. |
-| **Stacking (`+2`, `+4`, `+6`, `+10`)** | Deflect an incoming penalty by playing any Draw card with a value **$\ge$** the last played Draw card. |
-| **7 — Hand Swap** | When any `7` is played, you **must** choose another active player and swap your entire hand with theirs. |
-| **0 — Pass All Hands** | When any `0` is played, all active players pass their entire hand to the next player in the direction of play. |
-| **Skip Everyone** | Skips all other players at the table and grants you an **immediate extra turn**. |
-| **Discard All** | Immediately discards **every card in your hand** that matches the color of the *Discard All* card. |
-| **Wild Color Roulette** | Choose a color; the next player reveals cards from the deck until they flip that color (ignoring Wilds) and keeps them all. |
-| **2-Player Reverse = Skip** | Whenever only 2 active players remain, any **Reverse** card acts like a **Skip**, and **Wild Reverse Draw 4** makes your opponent draw 4 cards unless they can stack. |
+### 🔔 1. The Signature "DING!" Callout & Original Card Back
+* **Original Card Back**: Every card sports an original, bespoke luxury obsidian card back adorned with gold-ruled foil borders, decorative corner pips (`◆`), and a centered gold plaque displaying strictly **`DING`** (no extraneous logos, subtitles, or legacy marks).
+* **The `DING!` Callout**: When a player is down to their **final card**, they must trigger the gold **`DING!`** callout button before discarding.
+* **Penalty Rule**: If an opponent catches a player who forgot to call **`DING!`** before ending their turn, that player receives mandatory penalty draws!
+* **Acoustic Feedback**: Calling `DING!` triggers an authentic three-note harmonic chime synthesized via the Web Audio API.
+
+### ⚡ 2. Global Online Matchmaking Arena
+* **One-Click Public Matchmaking**: Jump into a global queue for **1 vs 1 Duels** or **4-Player Tables** without manually exchanging room codes.
+* **Decentralized Peer Broker**: Automatic discovery pairs online players in real time and initializes a direct WebRTC connection with minimal latency.
+* **Fallback Options**: Instantly toggle between global matchmaking, creating private custom rooms (`#XXXXX`), or practicing solo against intelligent Cyber-Bots.
+
+### 🔥 3. Ruthless "No Mercy" Mode (168 Cards)
+* **25-Card Mercy Rule Knockout**: If your hand swells to **25 or more cards** at any time, you are immediately eliminated from the match (**MERCY KO**). Your cards are recycled beneath the draw pile.
+* **Infinite Draw Stacking**: Stack any Draw card of **equal or higher penalty value** (`+2`, `+4`, `+6`, `+10`) onto an incoming attack to redirect and amplify the accumulated penalty toward the next player.
+* **Draw Until Playable**: If you cannot play on your turn, you must keep drawing cards until you find a legal move (or reach 25 cards and suffer a Mercy KO).
+* **7 Hand Swap & 0 Pass**:
+  * **7 Swap**: Choose any active opponent at the table and swap your entire hand with theirs.
+  * **0 Pass**: All active players rotate their entire hands in the current direction of play.
+* **High-Impact Action & Wild Cards**:
+  * **Skip Everyone**: Freezes all other players and grants you an immediate extra turn.
+  * **Discard All**: Drop every card in your hand matching the active color in a single turn.
+  * **Wild Color Roulette**: Name a target color; the next player draws until they reveal a card of that color and keeps all drawn cards.
+  * **Wild Draw 6 & Wild Draw 10**: Devastating wild penalty cards designed to force immediate Mercy knockouts.
+
+### ⏱️ 4. Turn Countdown Clock & Anti-Griefing Engine
+* **60-Second (`01:00`) Turn Timer**: Synchronized turn timer with smooth color transitions (Emerald → Amber → Pulsing Crimson) and audio ticks during the final 10 seconds.
+* **Auto-Play Fallback**: If a player's timer hits `00:00`, the authoritative engine automatically plays a random valid card (or draws from the deck).
+* **3-Round Inactivity Elimination**: Players who run out the clock on 3 consecutive rounds are disqualified (`ELIMINATED: 3 AFK`), keeping games fast and active.
+
+### 💀 5. Cinematic Full-Stage Elimination Showcase
+* When a player is knocked out—either via the **25-Card Mercy Rule** or **Inactivity Disqualification**—all players experience a synchronized full-stage cinematic sequence:
+  * Crimson shockwave canvas rings & flying card shards
+  * Eliminated player's avatar stamped with a bold knockout badge
+  * Sub-bass gong audio effect
+  * Table seat transforms into an atmospheric tombstone marker (`💀 ELIMINATED`)
+
+### 🌐 6. Private Rooms, Host Migration & AI Takeover
+* **Live 4-Seat Lobby Roster**: Host a private room with a clean 5-character room code (`#XXXXX`), monitor seats in real time, and launch when ready.
+* **Seamless Host Migration**: If the room host leaves or disconnects, host authority smoothly migrates to the next peer without disrupting the game.
+* **AI Bot Takeover**: If any human peer drops out mid-match, an intelligent bot automatically takes over their seat and hand, ensuring the game finishes uninterrupted.
+* **Instant Rematch**: Win or lose, any player can request an instant rematch to deal fresh hands immediately within the same room.
+
+### 🎵 7. Polyphonic Web Audio BGM & Soundscapes
+* 100% royalty-free, synthesized background music with zero external audio assets:
+  1. **Emerald Lounge (92 BPM)** — Smooth jazz-lounge chords & walking bass
+  2. **No Mercy Pulse (108 BPM)** — Dynamic synthwave arena groove
+  3. **Midnight Lo-Fi (82 BPM)** — Mellow chillhop keys & vinyl warmth
+* Independent sound controls for sound effects, ambient volume, and music switching.
+
+### 🛡️ 8. Privacy & SEO Architecture
+* **DPDP Act Compliant**: Zero tracking cookies, zero remote data collection. All game data is ephemeral or stored locally in browser storage.
+* **Dynamic Search Protection**: Private game rooms and live matches automatically inject `<meta name="robots" content="noindex, nofollow">` to prevent search crawlers from indexing private session URLs.
+* **Structured Data**: Validated Schema.org `VideoGame`, `WebSite`, and `FAQPage` JSON-LD markup on public landing pages.
+
+---
+
+## 🕹️ Rules & Comparison Matrix
+
+| Mechanic | Classic Mode (112 Cards) | No Mercy Mode (168 Cards) |
+| :--- | :--- | :--- |
+| **Card Back** | Bespoke Obsidian **`DING`** | Bespoke Obsidian **`DING`** |
+| **Final Card Callout** | Call **`DING!`** before discarding | Call **`DING!`** before discarding |
+| **Mercy Rule** | Disabled | **25+ Cards = Instant Elimination** |
+| **Draw Stacking** | `+2` / `+4` on equal or greater value | `+2`, `+4`, `+6`, `+10` on $\ge$ value |
+| **Draw on No Move** | Draw 1 card and pass | **Draw repeatedly until a playable card is found** |
+| **7 Hand Swap** | Regular numbered card | **Swap your entire hand with any active player** |
+| **0 Pass All** | Regular numbered card | **All players pass hands in play direction** |
+| **Special Wilds** | Wild, Wild Draw 4 | Wild Draw 4, 6, 10, Discard All, Color Roulette, Skip Everyone |
+| **Turn Limit** | 60-second timer with auto-play | 60-second timer with auto-play |
 
 ---
 
 ## 🚀 Getting Started Locally
 
 ### Prerequisites
-- **Node.js** `v18+` and `npm`
+* **Node.js** `v18.0.0` or higher
+* **npm** `v9.0.0` or higher
 
-### Installation & Development Server
+### Installation
 
 ```bash
 # 1. Clone the repository
@@ -100,56 +113,65 @@ cd UNO-
 # 2. Install dependencies
 npm install
 
-# 3. Start the local Vite dev server
+# 3. Start local development server
 npm run dev
 ```
 
 Open `http://localhost:5173` in your browser.
 
-### Production Build & Deployment
+### Building for Production
 
 ```bash
-# Build production bundle into dist/
+# Compile and bundle TypeScript & React assets
 npm run build
 
-# Preview production build locally
+# Preview the production bundle locally
 npm run preview
 ```
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ Project Architecture
 
 ```text
 src/
 ├── components/
-│   ├── CardFlightLayer.tsx    # Bezier card flight trajectories & table shockwaves
-│   ├── CenterTableArea.tsx    # 3D Draw Pile, Discard Pile & Pulsing Active Color Ring
+│   ├── CardFlightLayer.tsx    # Smooth Bézier curve card flight animations & shockwaves
+│   ├── CenterTableArea.tsx    # 3D Draw Pile, Discard Pile & Active Color indicator
 │   ├── GameGuideSection.tsx   # Comprehensive SEO game guide, rules & interactive FAQ
-│   ├── GameHUD.tsx            # In-game HUD, 60s Turn Timer, Elimination Cinema, DING! button & Rematch Modal
-│   ├── HomeScreen.tsx         # 2-Column Final Draw Console, Gallery Avatar Uploader & 4-Seat Live Lobby Roster
-│   ├── MusicControls.tsx      # Looping Background Music Mute, Volume (- / Slider / +) & Track Switcher
-│   ├── OpponentSeat.tsx       # Top/Left/Right seats, Robot avatars, AFK badges & DING! status alerts
-│   ├── PlayerHand.tsx         # Auto-sorted color clusters & responsive 100%-zoom/mobile hand math
-│   ├── PoolTableStage.tsx     # 3D emerald billiards table cabinet, brass pockets & overhead lighting
+│   ├── GameHUD.tsx            # In-game HUD, 60s Turn Timer, Elimination Cinema, DING! button & Rematch
+│   ├── HomeScreen.tsx         # Final Draw Console, Global Matchmaking, Avatar Uploader & Lobby Roster
+│   ├── MusicControls.tsx      # Web Audio BGM Synthesizer controls & volume slider
+│   ├── OpponentSeat.tsx       # Table seats, Robot avatars, AFK indicators & DING! badges
+│   ├── PlayerHand.tsx         # Responsive player hand with dynamic color sorting & card fanning
+│   ├── PoolTableStage.tsx     # 3D Emerald billiards table cabinet, brass accents & lighting
 │   ├── PrivacyLegalHub.tsx    # DPDP Act compliant privacy policy, privacy controls & data export
-│   ├── SiteFooter.tsx         # Quick access legal, rules & support footer dropdowns
-│   └── UnoCard.tsx            # High-contrast physical Final Draw cards & DING gold-foil card back
+│   ├── SiteFooter.tsx         # Legal, rules, copyright & navigation footer
+│   └── UnoCard.tsx            # Final Draw card renderer with original DING obsidian card back
 ├── styles/
-│   └── billiards.css          # 3D table shaders, Elimination Cinema, Lobby Roster, Timer & guide styles
+│   └── billiards.css          # 3D table shaders, gold foil styling, Elimination Cinema & animations
 ├── types/
-│   └── uno.ts                 # Core TypeScript interfaces for cards, seats, eliminations & network sync
+│   └── uno.ts                 # TypeScript schemas for game state, cards, peers & network messages
 ├── utils/
-│   ├── avatarImage.ts         # Local gallery image cropper/compressor & Cyber-Robot SVG generator
-│   ├── deckBuilder.ts         # 168-card No Mercy & Classic deck generator + play validation
-│   ├── handSorting.ts         # Strict color-group & rank hand organizer
-│   ├── multiplayerManager.ts  # PeerJS WebRTC Host/Client state, Lobby sync & Rematch messaging
-│   └── soundEffects.ts        # Looping BGM synthesizer + crisp DING bell chime & elimination SFX
-└── App.tsx                    # Authoritative game loop, 60s Timer/AFK engine, AI watchdog & P2P hooks
+│   ├── avatarImage.ts         # Local avatar cropping & procedural robot avatar generator
+│   ├── deckBuilder.ts         # 168-card No Mercy & Classic deck generator + rule verification
+│   ├── handSorting.ts         # Color-grouped hand organization algorithms
+│   ├── multiplayerManager.ts  # WebRTC peer mesh, matchmaking broker & message protocol
+│   └── soundEffects.ts        # Synthesized sound effects: DING chime, elimination gong & BGM
+└── App.tsx                    # Game state machine, turn scheduler, AI bots & dynamic SEO headers
 ```
 
 ---
 
-## 📄 Privacy & Compliance
+## 🔒 Privacy & Security
 
-Final Draw adheres to privacy-by-design standards aligned with the **Digital Personal Data Protection (DPDP) Act, 2023**. No personal data is stored on remote servers; all multiplayer communication is conducted directly between peer browsers via WebRTC data channels.
+Final Draw is engineered for user privacy:
+* **No Central Database**: Match data and player identities are exchanged entirely via end-to-end WebRTC data channels.
+* **Local Storage Only**: Custom avatars and sound preferences remain strictly within your device's browser `localStorage`.
+* **Zero Telemetry**: No third-party trackers, ad scripts, or behavioral analytics.
+
+---
+
+## 📄 License
+
+This project is open-source and licensed under the [MIT License](LICENSE).
