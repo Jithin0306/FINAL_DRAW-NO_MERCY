@@ -638,7 +638,7 @@ export function App() {
     [mode]
   );
 
-  // Official Mattel UNO Show 'Em No Mercy™ — 25-Card Elimination Helper
+  // Final Draw — 25-Card Mercy KO Elimination Helper
   const evaluateMercyRule = useCallback(
     (
       candidatePlayers: Player[],
@@ -845,7 +845,7 @@ export function App() {
         setDirection(nextDir);
         soundFX.playSpecialEffect('reverse');
 
-        // Official Mattel Rulebook:
+        // Final Draw Rulebook:
         // - With 2 players, Reverse skips the other player so you take another turn (stepAdvance = 2).
         // - With 2 players, Wild Reverse Draw 4 skips the other player and targets YOU with +4 (unless you stack it back!).
         if (activePlayersCount === 2) {
@@ -1125,7 +1125,7 @@ export function App() {
         // Taking a stacked penalty (+2, +4, +6, +10, etc.)
         drawn = pool.splice(0, pendingPenalty);
       } else if (mode === 'no_mercy') {
-        // Official Mattel Rulebook (Page 1):
+        // Final Draw Rulebook:
         // "If you DO NOT HAVE a matching card, you MUST draw cards from the Draw Pile UNTIL YOU DRAW A CARD YOU CAN PLAY."
         // (If player already had a matching card and chose to draw 1, draw 1; otherwise draw until playable or until hitting 25 cards!)
         const alreadyHasPlayable = targetPlayer.hand.some((c) =>

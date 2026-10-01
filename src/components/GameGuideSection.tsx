@@ -94,7 +94,7 @@ export const GameGuideSection: React.FC = () => {
           <div className="fd-modes-grid">
             <div className="fd-mode-box mode-no-mercy">
               <div className="fd-mode-tag tag-rose">COMPETITIVE SHOWDOWN</div>
-              <h4 className="fd-mode-title">Show &apos;Em No Mercy (168 Cards)</h4>
+              <h4 className="fd-mode-title">No Mercy Mode (168 Cards)</h4>
               <ul className="fd-mode-list">
                 <li><strong>25-Card Mercy KO:</strong> Any player holding 25+ cards is immediately knocked out of the match.</li>
                 <li><strong>Ruthless Stacking:</strong> Chain +2, +4, +6, and +10 cards to deal up to +30 card penalties.</li>

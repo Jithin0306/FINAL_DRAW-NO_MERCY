@@ -603,7 +603,7 @@ body,
 }
 
 /* ==================================================
-   PHYSICAL UNO CARD CRAFT & SPECIAL CARD ARTWORK
+   PHYSICAL FINAL DRAW CARD CRAFT & SPECIAL CARD ARTWORK
    ================================================== */
 
 .uno-physical-card {
@@ -1722,7 +1722,7 @@ body,
     0 2px 8px rgba(0, 0, 0, 0.95);
 }
 
-/* Sleek Table Action Buttons: UNO & DRAW */
+/* Sleek Table Action Buttons: DING! & DRAW */
 .table-action-btn {
   min-width: 96px;
   height: 38px;
@@ -2346,10 +2346,11 @@ body,
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 20px 24px 12px;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 36px 24px 32px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .nm-aura-crimson {
@@ -2387,7 +2388,7 @@ body,
   pointer-events: none;
 }
 
-/* Infinite Falling UNO Cards Rain Background */
+/* Infinite Falling Final Draw Cards Rain Background */
 .nm-falling-cards-rain {
   position: absolute;
   inset: 0;
@@ -2478,49 +2479,27 @@ body,
   align-items: center;
 }
 
-.nm-uno-tilted-pill {
-  transform: rotate(-6deg) translateY(4px);
-  padding: 5px 20px;
+.fd-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 14px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
-  border: 2px solid #fde047;
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.8),
-    0 0 18px rgba(239, 68, 68, 0.45);
-  z-index: 6;
-  white-space: nowrap;
-}
-
-.nm-uno-tilted-pill span {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
   font-family: var(--font-condensed);
-  font-size: 19px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
-  text-transform: uppercase;
-  display: block;
-}
-
-.nm-show-em-badge {
-  position: relative;
-  z-index: 7;
-  margin-top: 2px;
-  padding: 2px 12px;
-  border-radius: 5px;
-  background: #090d16;
-  border: 1px solid rgba(251, 191, 36, 0.65);
-  font-family: var(--font-display);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 3px;
-  color: #fde68a;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
 .nm-title-wrapper {
   position: relative;
   display: inline-block;
-  margin-top: -2px;
+  margin-top: 2px;
   overflow: visible;
 }
 
@@ -2528,16 +2507,15 @@ body,
   position: absolute;
   inset: 0;
   display: inline-block;
-  padding: 6px 24px;
-  font-family: var(--font-condensed);
-  font-size: clamp(58px, 7vw, 76px);
-  font-weight: 800;
-  font-style: italic;
-  line-height: 0.96;
-  letter-spacing: 3px;
-  color: #f43f5e;
-  filter: blur(22px);
-  opacity: 0.6;
+  padding: 4px 20px;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 6.5vw, 72px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 4px;
+  color: #f59e0b;
+  filter: blur(24px);
+  opacity: 0.55;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
@@ -2546,38 +2524,58 @@ body,
 .nm-title-main {
   position: relative;
   display: inline-block;
-  padding: 6px 24px;
-  font-family: var(--font-condensed);
-  font-size: clamp(58px, 7vw, 76px);
-  font-weight: 800;
-  font-style: italic;
-  line-height: 0.96;
-  letter-spacing: 3px;
+  padding: 4px 20px;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 6.5vw, 72px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 4px;
   white-space: nowrap;
   background: linear-gradient(
     180deg,
     #ffffff 0%,
-    #ffe4e6 28%,
-    #fb7185 56%,
-    #e11d48 88%,
-    #be123c 100%
+    #fef08a 25%,
+    #f59e0b 60%,
+    #d97706 85%,
+    #92400e 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 6px 22px rgba(225, 29, 72, 0.5));
+  filter: drop-shadow(0 6px 24px rgba(245, 158, 11, 0.45));
+}
+
+.fd-hero-mode-pill {
+  margin-top: 6px;
+  padding: 4px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  border: 1.5px solid #fde047;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+  z-index: 6;
+}
+
+.fd-hero-mode-pill span {
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  display: block;
 }
 
 .nm-subtitle {
-  margin-top: 4px;
+  margin-top: 8px;
   font-family: var(--font-display);
   font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 4.8px;
+  letter-spacing: 3.5px;
   color: #fbbf24;
   text-shadow: 0 2px 12px rgba(251, 191, 36, 0.35);
 }
 
-/* 3D Physical Fanned UNO Cards Stage */
+/* 3D Physical Fanned Final Draw Cards Stage */
 .nm-physical-fan-stage {
   position: relative;
   width: 100%;

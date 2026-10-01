@@ -53,7 +53,7 @@ const SPECIAL_VALUE_ORDER: Record<CardValue, number> = {
 };
 
 /**
- * Strict deterministic sort comparator for UNO cards:
+ * Strict deterministic sort comparator for Final Draw cards:
  * 1. Red number cards (0->9)
  * 2. Red special cards (Skip -> Reverse -> Draw 2 -> No Mercy specials)
  * 3. Blue number cards (0->9)

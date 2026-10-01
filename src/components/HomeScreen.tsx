@@ -485,7 +485,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       <div className="nm-aura-crimson" />
       <div className="nm-aura-emerald" />
 
-      {/* Continuous Looping Falling UNO Cards Background Rain */}
+      {/* Continuous Looping Falling Final Draw Cards Background Rain */}
       <div className="nm-falling-cards-rain" aria-hidden="true">
         {FALLING_BG_CARDS.map((item) => (
           <div
@@ -531,22 +531,25 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             LEFT COLUMN: OFFICIAL BRAND EMBLEM + 3D PHYSICAL CARD FAN
            ============================================================ */}
         <div className="nm-left-showcase">
-          {/* Layered UNO + SHOW 'EM + NO MERCY Emblem */}
+          {/* Final Draw Luxury Brand Emblem */}
           <div className="nm-emblem-stack">
-            <div className="nm-uno-tilted-pill">
-              <span>FINAL DRAW</span>
+            <div className="fd-hero-kicker">
+              <Sparkles size={12} className="text-amber-400" />
+              <span>MULTIPLAYER BILLIARDS TABLE</span>
             </div>
-            <div className="nm-show-em-badge">SHOW &apos;EM</div>
             <div className="nm-title-wrapper">
               <span className="nm-title-bloom" aria-hidden="true">
-                NO MERCY
+                FINAL DRAW
               </span>
-              <h1 className="nm-title-main">NO MERCY</h1>
+              <h1 className="nm-title-main">FINAL DRAW</h1>
             </div>
-            <div className="nm-subtitle">NO APOLOGIES. NO LIMITS.</div>
+            <div className="fd-hero-mode-pill">
+              <span>NO MERCY EDITION</span>
+            </div>
+            <div className="nm-subtitle">STACK PENALTIES • CALL DING! • 25 KO</div>
           </div>
 
-          {/* 3D Fanned Physical UNO Cards */}
+          {/* 3D Fanned Physical Final Draw Cards */}
           <div className="nm-physical-fan-stage" aria-hidden="true">
             <div className="nm-fan-glow-ring" />
             {SHOWCASE_FAN_CARDS.map((item, idx) => (

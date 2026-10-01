@@ -23,7 +23,7 @@
   - If caught by an opponent with one card without calling **`DING!`**, the player is penalized with mandatory card draws.
   - Every physical card is crowned with an original luxury obsidian and gold-foil card back displaying strictly **`DING`**.
 
-- **🔥 Competitive Show 'Em No Mercy Mode (168 Cards)**:
+- **🔥 Competitive No Mercy Mode (168 Cards)**:
   - **25-Card Mercy Rule Elimination**: Any player who reaches **25 or more cards** is immediately knocked out of the match (*MERCY KO*), and their cards are recycled under the discard pile.
   - **Ruthless Draw Stacking (`+2`, `+4`, `+6`, `+10`)**: Stack any Draw card of **equal or higher penalty value** onto an incoming attack and pass the combined total to the next player.
   - **Draw Until Playable**: In *No Mercy* mode, if you don't have a playable card on your turn, you must keep drawing from the deck until you draw a playable card (or hit 25 cards and get eliminated).
