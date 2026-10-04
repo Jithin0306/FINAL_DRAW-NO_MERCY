@@ -11,7 +11,7 @@
 [![PeerJS WebRTC](https://img.shields.io/badge/PeerJS_WebRTC-Multiplayer-f43f5e?style=for-the-badge)](https://peerjs.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg?style=for-the-badge)](LICENSE)
 
-### 🌐 **Play Instantly in Browser:** [https://jithin0306.github.io/UNO-/](https://jithin0306.github.io/UNO-/)
+### 🌐 **Play Instantly in Browser:** [[https://jithin0306.github.io/UNO-/](https://jithin0306.github.io/UNO-/](https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/))
 
 </div>
 
