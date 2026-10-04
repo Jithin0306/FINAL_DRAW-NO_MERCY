@@ -19,4 +19,4 @@ Disallow: /*?room=*
 Disallow: /*#*
 Disallow: /api/
 
-Sitemap: https://jithin0306.github.io/UNO-/sitemap.xml
+Sitemap: https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/sitemap.xml

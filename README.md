@@ -4,14 +4,14 @@
 
 **An ultra-sleek, WebRTC multiplayer & AI-powered card game set on an atmospheric 3D emerald billiards table. Call DING! on your final card before victory slips away.**
 
-[![Live Demo](https://img.shields.io/badge/🎮_PLAY_LIVE_NOW-GitHub_Pages-10b981?style=for-the-badge&logo=github)](https://jithin0306.github.io/UNO-/)
+[![Live Demo](https://img.shields.io/badge/🎮_PLAY_LIVE_NOW-GitHub_Pages-10b981?style=for-the-badge&logo=github)](https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/)
 [![React 18](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite_5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![PeerJS WebRTC](https://img.shields.io/badge/PeerJS_WebRTC-Multiplayer-f43f5e?style=for-the-badge)](https://peerjs.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg?style=for-the-badge)](LICENSE)
 
-### 🌐 **Play Instantly in Browser:** [[https://jithin0306.github.io/UNO-/](https://jithin0306.github.io/UNO-/](https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/))
+### 🌐 **Play Instantly in Browser:** [https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/](https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/)
 
 </div>
 
@@ -107,8 +107,8 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Jithin0306/UNO-.git
-cd UNO-
+git clone https://github.com/Jithin0306/FINAL_DRAW-NO_MERCY.git
+cd FINAL_DRAW-NO_MERCY
 
 # 2. Install dependencies
 npm install

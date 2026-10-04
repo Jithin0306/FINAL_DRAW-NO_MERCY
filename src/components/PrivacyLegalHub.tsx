@@ -521,12 +521,12 @@ export const PrivacyLegalHub: React.FC<PrivacyLegalHubProps> = ({
                 an issue or contact the project maintainer via the official
                 repository security &amp; support tracker:{' '}
                 <a
-                  href="https://github.com/Jithin0306/UNO-/issues"
+                  href="https://github.com/Jithin0306/FINAL_DRAW-NO_MERCY/issues"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="dpdp-ext-anchor"
                 >
-                  github.com/Jithin0306/UNO-/issues <ExternalLink size={11} />
+                  github.com/Jithin0306/FINAL_DRAW-NO_MERCY/issues <ExternalLink size={11} />
                 </a>
                 .
               </p>
@@ -1037,12 +1037,12 @@ export const PrivacyLegalHub: React.FC<PrivacyLegalHubProps> = ({
                 vulnerabilities via our GitHub Security Advisory / Issue tracker
                 at{' '}
                 <a
-                  href="https://github.com/Jithin0306/UNO-/security"
+                  href="https://github.com/Jithin0306/FINAL_DRAW-NO_MERCY/security"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="dpdp-ext-anchor"
                 >
-                  github.com/Jithin0306/UNO-/security <ExternalLink size={11} />
+                  github.com/Jithin0306/FINAL_DRAW-NO_MERCY/security <ExternalLink size={11} />
                 </a>
                 . No email registration is required to play the game.
               </p>
