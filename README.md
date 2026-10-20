@@ -17,9 +17,22 @@
 
 ---
 
-## 🌟 Overview
+## 📖 About Final Draw
 
-**Final Draw** is an original, fast-paced web card game combining the strategic depth of modern card battles with the tactile luxury of an emerald-felt billiards club. Built from the ground up on modern web standards (React 18, TypeScript, and PeerJS WebRTC), Final Draw requires zero backend servers, zero account signups, and delivers instant, synchronized peer-to-peer multiplayer directly in your browser.
+**Final Draw** is an original, competitive real-time web card game set on an atmospheric 3D emerald billiards table. Built from the ground up on modern web standards (**React 18**, **TypeScript**, **Tailwind CSS**, and **PeerJS WebRTC**), Final Draw delivers low-latency peer-to-peer multiplayer directly in the browser — with **zero backend server costs**, **zero account registrations**, and complete user privacy.
+
+### 🎯 Architecture & Technical Philosophy
+Most web multiplayer games rely on centralized WebSocket servers and persistent cloud databases. **Final Draw** challenges that paradigm through a fully decentralized client-mesh architecture:
+* **Serverless P2P Multiplayer**: Direct browser-to-browser data channels with automatic peer matchmaking via WebRTC.
+* **Fault-Tolerant Host Migration**: If the room host leaves or drops connection, room authority automatically migrates to the next peer without disrupting the ongoing match.
+* **AI Bot Seamless Takeover**: Disconnected human players are instantly replaced with autonomous AI bots so the remaining players can finish their game smoothly.
+* **100% Client-Side Privacy**: No tracking cookies, no telemetry, and no remote player profiling. Game sessions are ephemeral and private.
+
+### 🎮 The Gameplay Experience
+* **Signature DING! Callout**: Call **`DING!`** before discarding your final card. Forget to call it, and opponents can trigger a penalty draw against you!
+* **Bespoke DING Card Back**: Luxury obsidian card back with gold-ruled foil borders and clean centered `DING` branding.
+* **High-Stakes "No Mercy" Deck (168 Cards)**: Stacking penalties up to `+10`, 25-card Mercy Rule knockouts, 7 Hand Swaps, and 0 Table Passes.
+* **Dynamic 3D Felt Arena**: GPU-accelerated 120 FPS card fanning, elevation hover physics, and polyphonic Web Audio background jazz/synthwave music.
 
 ---
 
