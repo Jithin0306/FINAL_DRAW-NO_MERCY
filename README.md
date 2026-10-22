@@ -13,6 +13,17 @@
 
 ### 🌐 **Play Instantly in Browser:** [https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/](https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/)
 
+<br />
+
+<!-- Official Showcase Video & Autoplaying Preview -->
+<a href="https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/final_draw_showcase_video.mp4">
+  <img src="public/final_draw_showcase.gif" alt="Final Draw Official Showcase Video Preview" width="860" style="border-radius: 12px; box-shadow: 0 12px 36px rgba(0,0,0,0.6);" />
+</a>
+
+<p align="center">
+  🎬 <em>Click preview above to stream in 1080p with synthwave audio • <a href="https://jithin0306.github.io/FINAL_DRAW-NO_MERCY/final_draw_showcase_video.mp4"><strong>Direct Video Stream (MP4)</strong></a></em>
+</p>
+
 </div>
 
 ---
